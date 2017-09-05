@@ -16,14 +16,14 @@
     "index.js"
   ],
   "scripts": {
-    "start": "bankai start -V -A 0.0.0.0 example.js",
+    "start": "budo -p 8080 -H 0.0.0.0 example.js",
     "test": "standard --verbose | snazzy && tape test.js | tap-summary"
   },
   "repository": "YerkoPalma/marli",
   "devDependencies": {
     "assert-html": "^1.1.5",
-    "bankai": "^9.0.0-1",
     "bel": "^5.1.0",
+    "budo": "^10.0.4",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
     "tap-summary": "^4.0.0",

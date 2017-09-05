@@ -9,7 +9,13 @@ function Marli (presetName, opts) {
       var arg = arguments[ i + 1 ] || ''
       result += strings[i] + arg
     }
-    return md.render(result)
+    if (typeof document !== 'undefined') {
+      var div = document.createElement('div')
+      div.innerHTML = md.render(result)
+      return div
+    } else {
+      return md.render(result)
+    }
   }
 }
 module.exports = Marli
