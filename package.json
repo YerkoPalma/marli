@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "name": "marli",
-  "description": "markdown tagged template literal parser",
+  "description": "markdown tagged template literal renderer",
   "author": "YerkoPalma",
   "version": "0.1.0",
   "main": "index.js",
