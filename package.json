@@ -1,0 +1,29 @@
+{
+  "keywords": [
+    "tagged",
+    "template",
+    "literal",
+    "parser",
+    "markdown"
+  ],
+  "license": "MIT",
+  "name": "marli",
+  "description": "markdown tagged template literal parser",
+  "author": "YerkoPalma",
+  "version": "0.1.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "standard --verbose | snazzy && tape test.js | tap-summary"
+  },
+  "repository": "YerkoPalma/marli",
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3",
+    "tap-summary": "^4.0.0",
+    "tape": "^4.8.0"
+  }
+}
