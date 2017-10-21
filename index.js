@@ -1,7 +1,12 @@
 var Markdownit = require('markdown-it')
 
-function Marli (presetName, opts) {
+function Marli (presetName, opts, rules) {
   var md = Markdownit(presetName, opts)
+  if (typeof rules === 'object') {
+    for (var rule in rules) {
+      md.renderer.rules[rule] = rules[rule]
+    }
+  }
   return function (strings) {
     var arglen = arguments.length
     var result = ''
