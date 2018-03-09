@@ -24,11 +24,13 @@ document.body.appendChild(dom)
 
 ## API
 
-### md = Markdown([presetName][, options][, rules])
+### md = Markdown([presetName][, options])
 
 Marli uses [markdown-it][markdown-it] under the hood, so it accepts the same 
-arguments for it's constructor. Check [markdown-it constructor][constructor] docs for more info.
-You can also pass a rules object, that will be passed to the [renderer][renderer], so you can overrider rules like this
+arguments for it's constructor. Check [markdown-it constructor][constructor] 
+docs for more info. You can also pass a rules object as an option property, 
+that will be passed to the [renderer][renderer], so you can overrider rules 
+like this
 
 ```js
 function link_open (tokens, idx, options, env, self) { // eslint-disable-line camelcase
@@ -41,12 +43,18 @@ function link_open (tokens, idx, options, env, self) { // eslint-disable-line ca
   }
   return defaultRender(tokens, idx, options, env, self)
 }
-var md = require('marli')(null, null, { link_open })
+var md = require('marli')({ rules: { link_open } })
 var mdDom = marli`[google](www.google.com)`
 // outputs
 // <p><a href="www.google.com" target="_blank">google</a></p>
 ```
 
+In the same way you can pass plugins to Markdown-it constructor, like this
+
+```js
+var Markdown = require('./')
+var md = Markdown({plugins: [require('markdown-it-meta')]})
+```
 ## License
 [MIT](/license)
 
