@@ -25,6 +25,7 @@
     "bel": "^5.1.0",
     "budo": "^10.0.4",
     "highlight-syntax": "^3.0.2",
+    "markdown-it-meta": "0.0.1",
     "sheetify": "^6.1.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",

@@ -37,9 +37,25 @@ test('allow access to override rules', function (t) {
     }
     return defaultRender(tokens, idx, options, env, self)
   }
-  var marli = require('./')(null, null, { link_open })
+  var marli = require('./')({ rules: { link_open } })
   var dom = html`<p><a href="www.google.com" target="_blank">google</a></p>`
   var mdDom = marli`[google](www.google.com)`
   assertHtml(t, dom.toString(), mdDom)
+  t.end()
+})
+
+test('allow passing plugins to Markdown-it', function (t) {
+  var Markdown = require('./')
+  var md = Markdown({plugins: [require('markdown-it-meta')]})
+
+  md`---
+title: Welcome to Markdown-it-meta
+keywords: markdown-it-meta
+---
+## Hello World`
+  t.deepEqual(md._md.meta, {
+    title: 'Welcome to Markdown-it-meta',
+    keywords: 'markdown-it-meta'
+  })
   t.end()
 })
